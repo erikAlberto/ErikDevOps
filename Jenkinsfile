@@ -12,7 +12,7 @@ pipeline{
 			steps{
 				echo 'Runnig unit test'
 				sh './quickstart/gradlew test -p quickstart'
-				junit './build/reports/tests/test/*.html'
+				junit './build/test-results/test/*.xml'
 			}
 		}
 		stage('Publish'){
