@@ -8,19 +8,17 @@ services:
       - "50000:50000"
     volumes:
       - ./jenkins:/var/jenkins_home
+      
   gocd_server:
     image: "registry.jala.info/devops/gocd/gocd-server:v18.5.0"
     ports:
       - "8153:8153"
       - "8154:8154"
-    links:
-      - gocd_agent
 
   gocd_agent:
     image: "registry.jala.info/devops/gocd/gocd-agent-alpine-3.7:v18.5.0"
     environment:
-      - GO_SERVER_URL=https://10.28.110.79:8154/go
-      - GO_SERVER_URL=https://10.28.110.79:8153/go
+      - GO_SERVER_URL=https://gocd_server:8154/go
     volumes:
       - ./godata:/godata
       - ./go:/home/go
@@ -29,4 +27,3 @@ services:
     image: "registry.jala.info/devops/sonarqube:6.7.4-alpine"
     ports:
       - "9000:9000"
-      - "9092:9092"
