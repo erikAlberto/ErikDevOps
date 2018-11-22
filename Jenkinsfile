@@ -18,7 +18,7 @@ pipeline{
 		stage('Publish'){
 			steps{
 				echo 'Publishing Artifact'
-				sh './gradlew uploadArchives'
+				sh './quickstart/gradlew uploadArchives -p quickstart'
 				archiveArtifacts artifacts: '**/repos/*.jar'
 			}
 		}
