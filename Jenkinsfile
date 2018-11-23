@@ -26,7 +26,7 @@ pipeline{
       steps{
         echo 'Building'
         sh './webapplication/gradlew clean assemble -p webapplication'
-        sh './gradlew uploadArchives -p webapplication'
+        sh './webapplication/gradlew uploadArchives -p webapplication'
         archiveArtifacts artifacts: '**/repos/*.war'
       }
     }
