@@ -131,7 +131,6 @@ pipelines:
             Tomcat:
               tasks:
                 - exec:
-                    working_directory: webapplication
                     command: ./gradlew
                     arguments:
                       - -b
