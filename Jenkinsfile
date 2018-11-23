@@ -41,7 +41,7 @@ pipeline{
     stage('Security web application'){
       steps{
         echo 'Security'
-        sh './webapplication/gradlew sonarqube'
+        sh './webapplication/gradlew sonarqube -p webapplication'
         sh './webapplication/gradlew dependencyCheckAnalyze -p webapplication'
         archiveArtifacts artifacts: '**/reports/*.html'
       }
