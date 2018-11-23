@@ -42,14 +42,14 @@ pipeline{
       steps{
         echo 'Security'
         sh './webapplication/gradlew sonarqube'
-        sh './webapplication/gradlew dependencyCheckAnalyze'
+        sh './webapplication/gradlew dependencyCheckAnalyze -p webapplication'
         archiveArtifacts artifacts: '**/reports/*.html
       }
     }
     stage('Deploy web application'){
       steps{
         echo 'Deployment'
-        sh './webapplication/gradlew -b deploy.gradle copyWar'
+        sh './webapplication/gradlew -b deploy.gradle copyWar -p webapplication'
       }
     }
   }
