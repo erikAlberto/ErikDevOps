@@ -49,7 +49,8 @@ pipeline{
     stage('Deploy web application'){
       steps{
         echo 'Deployment'
-        sh './webapplication/gradlew -b deploy.gradle copyWar -p webapplication'
+        sh 'cd webapplication'
+        sh './gradlew -b deploy.gradle copyWar -p webapplication'
       }
     }
   }
