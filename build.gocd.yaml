@@ -131,7 +131,7 @@ pipelines:
             Tomcat:
               tasks:
                 - exec:
-                    command: ./webapplication/gradlew
+                    command: ./gradlew
                     arguments:
                       - -b
                       - deploy.gradle
