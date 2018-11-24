@@ -15,7 +15,7 @@ task copyWar {
   doLast {
     ssh.run {
       session(remotes.dev_server) {
-        put from: 'build/libs/webapplication.war', into: '.'
+        put from: 'webapplication/build/libs/webapplication.war', into: '.'
         execute 'sudo service tomcat8 stop'
         execute "sudo rm -f /var/lib/tomcat/webapps/webapplication.war"
         execute "sudo rm -f /var/lib/tomcat/webapps/webapplication"
